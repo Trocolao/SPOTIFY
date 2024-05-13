@@ -1,0 +1,42 @@
+.container {
+    margin: 20px;
+    padding: 10px;
+}
+
+.song-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.song-item {
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+    margin:20px;
+}
+
+.song-item:hover {
+    background-color: #e0e0e0; /* Highlight the whole song on hover */
+}
+
+.song-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+
+.song-title:hover {
+    color: green; /* Change title to green on hover */
+}
+
+.song-info {
+    margin-bottom: 10px;
+}
+
+
+.song-actions a, .song-actions button {
+    margin-right: 10px;
+}

@@ -1,0 +1,21 @@
+<div class="container-fluid">
+  <h1>Canciones</h1>
+  <a routerLink="/cancion/create/" class="btn btn-success">Create New Cancion</a>
+  <div class="song-list">
+      <div class="song-item" *ngFor="let cancion of canciones">
+          <div class="song-info">
+              <div class="song-title">{{ cancion.nombre }}</div>
+              <div class="song-genre">{{ cancion.genero }}</div>
+              <div class="song-artist">{{ cancion.artista }}</div>
+          </div>
+          <audio *ngIf="cancion?.audios[0]?.file_path" controls>
+              <source [src]="'http://localhost:8000/' + cancion?.audios[0]?.file_path" type="audio/mpeg">
+              Tu navegador no soporta el elemento de audio.
+          </audio>
+          <div class="song-actions">
+              <a href="#" [routerLink]="['/cancion/', cancion.id, 'edit']" class="btn btn-primary">Edit</a>
+              <button type="button" (click)="deletePost(cancion.id)" class="btn btn-danger">Delete</button>
+          </div>
+      </div>
+  </div>
+</div>

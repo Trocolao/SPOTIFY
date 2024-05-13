@@ -1,0 +1,33 @@
+<div class="container">
+    <h1>View Lista</h1>
+    <a href="#" routerLink="/lista/myindex" class="btn btn-primary">Back</a>
+
+    <div class="lista-details">
+        <strong>Nombre:</strong>
+        <p>{{ lista.nombre }}</p>
+    </div>
+    <div class="lista-image">
+        <img src="{{ image }}" alt="Imagen de la lista">
+    </div>
+    <div class="songs-container">
+        <div class="song-item" *ngFor="let cancion of lista.canciones">
+            <div class="song-info">
+                <strong>{{ cancion.nombre }}</strong>
+                <br>
+                <strong>{{ cancion.artista }}</strong>
+                <br>
+                <strong>{{ cancion.genero }}</strong>
+            </div>
+            <audio *ngIf="cancion?.audios[0]?.file_path" controls>
+                <source [src]="'http://localhost:8000/' + cancion?.audios[0]?.file_path" type="audio/mpeg">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+            <div *ngIf="loggedUser.id==lista.user_id" class="song-actions">
+                <button type="button" (click)="deleteSongFromList(lista.id,cancion.id)" class="btn btn-danger">Delete Song From List</button>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="loggedUser.id==lista.user_id" class="add-song">
+        <a href="#" [routerLink]="['/lista/', lista.id, 'anadir']" class="btn btn-primary">Añadir canción a Lista</a>
+    </div>
+</div>

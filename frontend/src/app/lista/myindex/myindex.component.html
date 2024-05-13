@@ -1,0 +1,17 @@
+<div class="container">
+    <h1>Mis Listas</h1>
+    <a href="#" routerLink="/lista/create/" class="btn btn-success">Create New Lista</a>
+    <div class="list-container">
+        <div class="list-card" *ngFor="let lista of listas">
+            <img class="list-image" [src]="'http://localhost:8000/' + lista?.files[0].file_path" alt="Descripción del evento">
+            <div class="list-details">
+                <div class="list-name">{{ lista.nombre }}</div>
+                <div class="list-actions">
+                    <a href="#" [routerLink]="['/lista/', lista.id, 'view']" class="btn btn-info">View</a>
+                    <a href="#" [routerLink]="['/lista/', lista.id, 'edit']" class="btn btn-primary">Edit</a>
+                    <button type="button" (click)="deletePost(lista.id)" class="btn btn-danger">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

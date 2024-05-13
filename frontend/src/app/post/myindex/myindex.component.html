@@ -1,0 +1,27 @@
+<div class="container">
+    <h1>Mis Peticiones</h1>
+
+    <a href="#" routerLink="/post/create/" class="btn btn-success">Create New Post</a>
+
+    <table class="table table-bordered">
+        <tr>
+            <th>ID</th>
+            <th>Titulo</th>
+            <th>Descripcion</th>
+            <th width="220px">Destinatario</th>
+            <th>Categoria_ID</th>
+        </tr>
+        <tr *ngFor="let post of post">
+            <td>{{ post.id }}</td>
+            <td>{{ post.titulo }}</td>
+            <td>{{ post.descripcion }}</td>
+            <td>{{ post.destinatario }}</td>
+            <td>{{ post.categoria_id }}</td>
+            <td>
+                <a href="#" [routerLink]="['/post/', post.id, 'view']" class="btn btn-info">View</a>
+                <a href="#" [routerLink]="['/post/', post.id, 'edit']" class="btn btn-primary">Edit</a>
+                <button type="button" (click)="deletePeticion(post.id)" class="btn btn-danger">Delete</button>
+            </td>
+        </tr>
+    </table>
+</div>

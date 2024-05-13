@@ -1,0 +1,36 @@
+<div class="container">
+    <h1>View Post</h1>
+
+    <a href="#" routerLink="/post/index" class="btn btn-primary">Back</a>
+
+    <div>
+        <strong>ID:</strong>
+        <p>{{ post.id }}</p>
+    </div>
+
+    <div>
+        <strong>Titulo:</strong>
+        <p>{{ post.titulo }}</p>
+    </div>
+
+    <div>
+        <strong>Descripcion:</strong>
+        <p>{{ post.descripcion }}</p>
+    </div>
+    <div>
+        <strong>Destinatario:</strong>
+        <p>{{ post.destinatario }}</p>
+    </div>
+    <div>
+        <strong>Categoria_id:</strong>
+        <p>{{ post.categoria_id }}</p>
+    </div>
+    <div>
+        <strong>Firmantes:</strong>
+        <p>{{ post.firmantes }}</p>
+    </div>
+    <div>
+        <img src="{{ image }}" alt="Imagen de la petición">
+    </div>
+    <button type="button" (click)="firma(post.id)" class="btn btn-danger mx-2">Firmar</button>
+</div>

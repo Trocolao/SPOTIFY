@@ -1,0 +1,41 @@
+<div class="container-fluid" style="padding: 30px;">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="5000"> <!-- 5000 milisegundos = 5 segundos -->
+        <div class="carousel-inner">
+            <!-- Primera diapositiva -->
+            <div class="carousel-item active">
+                <img src="../../assets/images/spoty_carousel.png" class="d-block w-100" alt="Imagen 1">
+                <div class="carousel-caption d-none d-md-block">
+                    <a *ngIf="isSignedIn" [routerLink]="['/lista/myindex']"><h5>Descubre tu biblioteca</h5></a>
+                </div>
+            </div>
+
+            <!-- Segunda diapositiva -->
+            <div class="carousel-item">
+                <img src="../../assets/images/spotycarousel2.png" class="d-block w-100" alt="Imagen 2">
+                <div class="carousel-caption d-none d-md-block">
+                    <a *ngIf="isSignedIn" [routerLink]="['/lista/create']"><h5>Crea una nueva playlist</h5></a>
+                </div>
+            </div>
+
+            <!-- Tercera diapositiva -->
+            <div class="carousel-item">
+                <img src="../../assets/images/spotycarousel3.png" class="d-block w-100" alt="Imagen 3">
+                <div class="carousel-caption d-none d-md-block">
+                    <a *ngIf="isSignedIn" [routerLink]="['/cancion/index']"><h5>Escucha todas nuestras canciones</h5></a>
+                </div>
+            </div>
+
+            <!-- Agrega más diapositivas según sea necesario -->
+        </div>
+
+        <!-- Controles de navegación -->
+        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Anterior</span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Siguiente</span>
+        </a>
+    </div>
+</div>

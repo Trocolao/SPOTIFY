@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Personaliza el color de fondo de la barra de navegación */
+       
+    </style>
+    <title>SPOTIFY</title>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="#"><img src="../assets/images/spotify_logo.png" alt="Logo"></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                  aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ml-auto">
+                  <li class="nav-item active">
+                      <a class="nav-link" [routerLink]="['/home']">Home</a>
+                  </li>
+                  <li class="nav-item">
+                      <a *ngIf="isSignedIn" class="nav-link" [routerLink]="['/lista/myindex']">Ver Mis Playlist</a>
+                  </li>
+                  <li class="nav-item">
+                      <a *ngIf="isSignedIn" class="nav-link" [routerLink]="['/lista/index']">Biblioteca</a>
+                  </li>
+                  <li class="nav-item">
+                      <a *ngIf="isSignedIn" class="nav-link" [routerLink]="['/cancion']">Descrube canciones</a>
+                  </li>
+                
+              </ul>
+          </div>
+  
+          <ul class="navbar-nav ml-auto" *ngIf="isSignedIn">
+            <li class="nav-item dropdown d-none d-xl-inline-block user-dropdown">
+            </li>
+          </ul>
+      
+          <a *ngIf="!isSignedIn" class="nav-link fs-5 m-2 link-danger" [routerLink]="['/register']">Register</a>
+          <a *ngIf="!isSignedIn" class="nav-link fs-5 m-2 link-danger" [routerLink]="['/login']">Login</a>
+          <a *ngIf="isSignedIn" class="nav-link fs-5 m-2 link-danger" (click)="signOut()">Logout</a>
+  
+      </div>
+  </nav>
+  
+  
+  <router-outlet></router-outlet>
+  
+  
+  <footer class="bg-dark text-white text-center py-3">
+      <div class="container mt-3">
+          <div class="row">
+              <div class="col-12 col-md-4 mb-3">
+                  <h5 style="color: white;">NUESTRAS REDES</h5>
+              </div>
+  
+              <div class="col-12 col-md-4 mb-3">
+                  <img src="../assets/images/TWITTER.png" alt="" class="img-fluid rounded-circle" style="width: 50px; margin-right: 10px;" >
+                  <img src="../assets/images/FACEBOOK.jpg" alt="" class="img-fluid rounded-circle" style="width: 50px;">
+                  <img src="../assets/images/INSTAGRAM.jpg" alt="" class="img-fluid rounded-circle" style="width: 50px; margin-left: 10px;">
+              </div>
+  
+              <div class="col-12 col-md-4 mb-3">
+                  <p class="lead" style="color: white;">Politica de Privacidad  @2023Spotify</p>
+              </div>
+          </div>
+      </div>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  </body>
+  
+</html>

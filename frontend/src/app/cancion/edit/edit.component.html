@@ -1,0 +1,40 @@
+<div class="container">
+    <h1>Update Cancion</h1>
+
+    <a href="#" routerLink="/cancion/index" class="btn btn-primary">Back</a>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+        <div class="form-group">
+            <label for="nombre">nombre:</label>
+            <input formControlName="nombre" id="nombre" type="text" [(ngModel)]="cancion.nombre" class="form-control">
+            <div *ngIf="f['nombre'].touched && f['nombre'].invalid" class="alert alert-danger">
+                <div *ngIf="f['nombre'].errors && f['nombre'].errors['required']">nombre is required.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="genero">Genero</label>
+            <textarea formControlName="genero" id="genero" type="text" [(ngModel)]="cancion.genero"
+                class="form-control">
+            </textarea>
+            <div *ngIf="f['genero'].touched && f['genero'].invalid" class="alert alert-danger">
+                <div *ngIf="f['genero'].errors && f['genero'].errors['genero']">genero is required.
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="genero">Artista</label>
+            <textarea formControlName="artista" id="artista" type="text" [(ngModel)]="cancion.artista"
+                class="form-control">
+            </textarea>
+            <div *ngIf="f['artista'].touched && f['artista'].invalid" class="alert alert-danger">
+                <div *ngIf="f['artista'].errors && f['artista'].errors['artista']">artista is required.
+                </div>
+            </div>
+        </div>
+       
+
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Update</button>
+    </form>
+</div>

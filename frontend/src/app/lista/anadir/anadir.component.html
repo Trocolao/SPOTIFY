@@ -1,0 +1,22 @@
+<div class="container">
+    <h1>Añadir canción a la Lista</h1>
+    <a href="#" routerLink="/lista/myindex" class="btn btn-primary">Back</a>
+
+    <div class="song-list">
+        <div class="song-item" *ngFor="let cancion of canciones">
+            <div class="song-info">
+                <div class="song-name">{{ cancion.nombre }}</div>
+                <div class="song-genre">{{ cancion.genero }}</div>
+                <div class="song-artist">{{ cancion.artista }}</div>
+            </div>
+            <audio *ngIf="cancion?.audios[0]?.file_path" controls>
+                <source [src]="'http://localhost:8000/' + cancion?.audios[0]?.file_path" type="audio/mpeg">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+            <div class="song-actions">
+                <button type="button" (click)="addSongToList(lista.id, cancion.id)" class="btn btn-danger">ADD Song to List</button>
+            </div>
+        </div>
+    </div>
+</div>
+

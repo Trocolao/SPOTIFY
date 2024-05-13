@@ -1,0 +1,10 @@
+.carousel-caption h5,
+.carousel-caption p {
+    color: #ffffff; /* Texto blanco */
+}
+
+
+.carousel-caption a {
+    color: #ffffff; /* Color del enlace */
+    text-decoration: none; /* Quita el subrayado del enlace */
+}
